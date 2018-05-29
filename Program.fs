@@ -7,67 +7,24 @@ module Application =
     open Chiron
     open System
     open System.IO
-    open System.Xml.Serialization
-    open System.Text
-
-
-    // UTIL START
-    let private gets = 
-      function
-        | Json.String s -> Some s
-        | _ -> None
-
-    let private geta = 
-      function
-        | Json.Array a -> Some a
-        | _ -> None
-
-    let private defk (key:string) v = 
-      let ex () = raise (new Exception(String.Format("'{0}' key not found", key)))
-      Option.defaultWith ex v
-
-    let private defaultRaise msg =
-      function
-        | Some a -> a
-        | None -> raise (new Exception(msg))
-
-    let private getkey key =
-      function 
-        | Json.Object o -> Map.tryFind key o
-        | _ -> None
-
-    let private strkey key json =
-      getkey key json |> Option.bind gets
-
-    let private getkeyf s lib jsonCons = 
-      getkey s lib |> Option.bind jsonCons |> defk s
-
-    let private addHexByte (strBuilder:StringBuilder) (b:byte) =
-        strBuilder.Append(String.Format("{0:x2}", b)) |> ignore
-        strBuilder
-
-    let private byteHexStr (bs:byte[]) = 
-        (Array.fold addHexByte (new StringBuilder()) bs).ToString()
-
-    // UTIL END
-
-
-
-
+    open Dotnet2Nix.Util.JsonUtil
 
     let rec loadLibraries (file:string) =
         let data = File.ReadAllText(file)
         let json = Json.parse data
+
         let libs =
             match getkey "libraries" json with
               | Some (Json.Object o) -> o
               | _ -> raise (new Exception("Library json was not an object"))
+
         let combineProjectLibs libs _ lib =
             let libPath = 
               lazy 
               match strkey "path" lib with
                 | Some s -> s
                 | _ -> raise (new Exception("No path found in project"))
+
             match strkey "type" lib with
               | Some "project" ->
                   let otherProj = Path.GetDirectoryName(libPath.Force())
@@ -78,6 +35,7 @@ module Application =
                   with 
                       | _ -> libs
               | _ -> libs
+
         Map.fold combineProjectLibs libs libs
 
 
