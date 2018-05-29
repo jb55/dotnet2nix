@@ -58,26 +58,33 @@ module Application =
 
         let outputFiles = 
           getkeyf "files" lib geta
-            |> List.map (gets >> defaultRaise "files element was not a string")
-            |> List.filter filterFile
+            |> List.filter (gets >> Option.map filterFile >> defaultRaise "file was not a string")
 
         let (objMap:Map<string, Json>) = 
             Map.ofList [ "baseName", Json.String name
                          "version", Json.String ver 
                          "sha512", Json.String sha512
                          "path", Json.String path
-                         "files", Json.Array (List.map Json.String outputFiles)
+                         "files", Json.Array outputFiles
                        ]
 
         Json.Object objMap :: libs
 
+    let usage =
+        Console.WriteLine("dotnet2nix obj/project.assets.json [output-nuget-packages.json]")
+        1
 
     [<EntryPoint>]
     let main argv =
-        let libs = loadLibraries "..\..\..\obj\project.assets.json"
-        let pkgs = Map.fold makePackage List.empty libs
-        let serialized = Json.formatWith JsonFormattingOptions.Pretty (Json.Array pkgs)
-        Console.Write(serialized);
-
-        0 // return an integer exit code
+        let input = Array.tryItem 0 argv
+        let output = Array.tryItem 1 argv 
+                       |> Option.fold (fun _ file -> file) "nuget-packages.json"
+        match input with
+          | None -> usage
+          | Some filename ->
+                let libs = loadLibraries filename
+                let pkgs = Map.fold makePackage List.empty libs
+                let serialized = Json.formatWith JsonFormattingOptions.Pretty (Json.Array pkgs)
+                File.WriteAllText(output, serialized)
+                0
 
