@@ -70,9 +70,8 @@ module Application =
 
         Json.Object objMap :: libs
 
-    let usage =
-        Console.WriteLine("dotnet2nix obj/project.assets.json [output-nuget-packages.json]")
-        1
+    let usage = lazy let _ = Console.WriteLine("dotnet2nix Some.Project/obj/project.assets.json [output-nuget-packages.json]")
+                     1
 
     [<EntryPoint>]
     let main argv =
@@ -80,11 +79,12 @@ module Application =
         let output = Array.tryItem 1 argv 
                        |> Option.fold (fun _ file -> file) "nuget-packages.json"
         match input with
-          | None -> usage
+          | None -> usage.Force()
           | Some filename ->
-                let libs = loadLibraries filename
-                let pkgs = Map.fold makePackage List.empty libs
-                let serialized = Json.formatWith JsonFormattingOptions.Pretty (Json.Array pkgs)
-                File.WriteAllText(output, serialized)
-                0
+              let libs = loadLibraries filename
+              let pkgs = Map.fold makePackage List.empty libs
+              let serialized = Json.formatWith JsonFormattingOptions.Pretty (Json.Array pkgs)
+              Console.Error.Write(String.Format("writing to {0}", output))
+              File.WriteAllText(output, serialized)
+              0
 
