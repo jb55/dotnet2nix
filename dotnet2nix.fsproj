@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="dotnet2nix.sln" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Chiron" Version="6.2.1" />
   </ItemGroup>
 

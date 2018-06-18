@@ -63,15 +63,15 @@ module Application =
             |> List.filter filterFile
 
         // need to do this because of bash: argument list too long
-        let longestCommon =
-          PathUtil.longestCommonPath (List.toArray outputFiles)
+        let truncatedOutputFiles =
+          PathUtil.truncateLongRoots outputFiles 30
 
         let (objMap:Map<string, Json>) = 
             Map.ofList [ "baseName", Json.String name
                          "version", Json.String ver 
                          "sha512", Json.String sha512
                          "path", Json.String path
-                         "files", Json.Array (List.map Json.String outputFiles)
+                         "files", Json.Array (List.map Json.String truncatedOutputFiles)
                        ]
 
         Json.Object objMap :: libs

@@ -2,6 +2,8 @@
 namespace Dotnet2Nix.Util
 
 module PathUtil =
+  open System.Text
+  open System
 
 
   //
@@ -9,38 +11,40 @@ module PathUtil =
   //   instead of tree, just look at longest shared root path
   //
 
-  //type DirTree<'a> when 'a : comparison =
-  //  | Node of Map<'a, DirTree<'a>>
- 
-  //let dtNodes = function
-  //  | Node nodes -> nodes
+  let (&&&) f g = fun a -> (f a, g a)
 
-  //let rec countDepth (dt:DirTree<'a>) =
-  //  let folder count (_, node) = count + countDepth node
-  //  in Seq.fold folder 0 (Map.toSeq (dtNodes dt))
+  let uniqC xs =
+       Seq.groupBy id xs
+    |> Seq.map (snd >> (Seq.length &&& Seq.head))
 
-  //let getDepths = function
-  //  | Node nodes -> let seqNodes = Map.toSeq nodes |> Seq.map snd
-  //                  let counts = Seq.map countDepth seqNodes
-  //                  in Seq.zip counts seqNodes
+  let public truncateLongRoots (paths:string seq) (limit:int) =
+    let splitter (p:string) = p.Split('/')
+    let joiner (p:string []) = String.Join("/", p)
 
-  //let toSimplify (xs:(int * DirTree<'a>) seq) limit =
-  //  let folder nodes (count, node) = 
-  //    if count >= limit then node :: nodes else nodes
-  //  in Seq.fold folder [] xs
+    let splitPaths : string [] list = 
+      Seq.map splitter paths 
+        |> Seq.toList
 
-  //let pathsToDirTree (paths : string list) =
-  //  let folder acc path =
+    let longRoots : string list = 
+      Seq.map Seq.head splitPaths
+        |> uniqC
+        |> Seq.filter (fst >> fun x -> x >= limit)
+        |> Seq.map snd
+        |> Seq.toList
 
+    let hasLongRoot splitPath = 
+      List.contains (Array.head splitPath) longRoots
 
+    let pathShortener paths path =
+      if hasLongRoot path
+        then 
+          let root = Array.head path
+          if List.contains root paths
+            then paths
+            else root :: paths 
+        else joiner path :: paths
 
-  let pathToDirTree (path:string) =
-    let splitPath = Array.rev (path.Split("/"))
-    splitPath
-  //  match splitPath with
-  //    | [||]  -> Node Map.empty
-  //    | [|x|] -> Node (Map.add x (Node Map.empty) Map.empty)
-  //    | xs    -> Array.map 
-  //
-  //let longestCommonPrefix (paths:string seq) =
-  //  Seq.map pathToDirTree
+    let newPaths =
+      Seq.fold pathShortener [] splitPaths
+
+    newPaths
