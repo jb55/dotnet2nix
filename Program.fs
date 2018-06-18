@@ -98,7 +98,7 @@ module Application =
             let libs = loadLibraries input
             let pkgs = Map.fold makePackage List.empty libs
             let serialized = Json.formatWith JsonFormattingOptions.Pretty (Json.Array pkgs)
-            Console.Error.Write(String.Format("writing to {0}", output))
+            Console.Error.WriteLine(String.Format("writing to {0}", output))
             File.WriteAllText(output, serialized)
             0
 
