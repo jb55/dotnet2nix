@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dotnet2nix.fsproj" />
+    <ProjectReference Include="../dotnet2nix/dotnet2nix.fsproj" />
   </ItemGroup>
 
 </Project>
