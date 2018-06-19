@@ -71,7 +71,7 @@ module Application =
                          "version", Json.String ver
                          "sha512", Json.String sha512
                          "path", Json.String path
-                         "files", Json.Array (List.map Json.String truncatedOutputFiles)
+                         "outputFiles", Json.Array (List.map Json.String truncatedOutputFiles)
                        ]
 
         Json.Object objMap :: libs
