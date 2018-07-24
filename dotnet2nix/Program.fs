@@ -18,7 +18,7 @@ module Application =
               | Some (Json.Object o) -> o
               | _ -> raise (new Exception("Library json was not an object"))
 
-        let combineProjectLibs libs _ lib =
+        let combineProjectLibs libs key lib =
             let libPath =
               lazy
               match JsonUtil.strkey "path" lib with
@@ -31,9 +31,10 @@ module Application =
                   try
                       let projectAssets = Path.Combine(otherProj, "obj/project.assets.json")
                       let projectLibs = loadLibraries projectAssets
-                      Map.fold (fun o k v -> Map.add k v o) libs projectLibs
+                      let libs_ = Map.fold (fun o k v -> Map.add k v o) libs projectLibs
+                      Map.remove key libs_
                   with
-                      | _ -> libs
+                      | _ -> Map.remove key libs
               | _ -> libs
 
         Map.fold combineProjectLibs libs libs
