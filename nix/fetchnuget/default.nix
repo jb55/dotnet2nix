@@ -5,7 +5,7 @@ attrs @
 , version
 , outputFiles
 , url ? "https://www.nuget.org/api/v2/package/${baseName}/${version}"
-, sha512 ? ""
+, sha256 ? ""
 , md5 ? ""
 , ...
 }:
@@ -17,7 +17,7 @@ else
 
     make-cp = outFile: ''
       outFile="${outFile}"
-      [[ ''${outFile: -7} == ".sha512" ]] && echo -n "${sha512}" \
+      [[ ''${outFile: -7} == ".sha256" ]] && echo -n "${sha256}" \
         | ${lib.getBin xxd}/bin/xxd -r -p \
         | base64 -w500 > ${outFile}
       cp -r --parents -t $out "${outFile}" || :
@@ -29,7 +29,7 @@ else
     name = "${baseName}-${version}";
 
     src = fetchurl {
-      inherit url sha512;
+      inherit url sha256;
       name = "${baseName}.${version}.zip";
     };
 

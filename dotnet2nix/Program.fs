@@ -2,12 +2,15 @@
 
 namespace Dotnet2Nix
 
+
 module Application =
 
     open Chiron
     open System
     open System.IO
     open Dotnet2Nix.Util
+    open System.Diagnostics
+
 
     let rec loadLibraries (file:string) =
         let data = File.ReadAllText(file)
@@ -39,20 +42,31 @@ module Application =
 
         Map.fold combineProjectLibs libs libs
 
+    let nixPrefetchUrl (url:string) (name:string) =
+        let args = sprintf "--name %s %s" name url
+        let processStartInfo =
+          ProcessStartInfo(
+              FileName = "nix-prefetch-url",
+              Arguments = args,
+              RedirectStandardOutput = true,
+              UseShellExecute = false
+          )
+        let proc = Process.Start(processStartInfo)
+        let output = proc.StandardOutput.ReadToEnd()
+        proc.WaitForExit()
+        output.Trim()
 
-    let makePackage (libs:Json list) (libName:string) (lib:Json) =
+
+    let rec makePackage (libs:Json list) (libName:string) (lib:Json) =
         let (name, ver) =
           match libName.Split('/') with
             | [| name; ver |] -> (name, ver)
             | _ -> raise (new Exception("name and version not found in library name"))
 
-        let sha512 =
-          JsonUtil.getkeyf "sha512" lib JsonUtil.gets
-            |> Convert.FromBase64String
-            |> JsonUtil.byteHexStr
-
-        let path =
-          JsonUtil.getkeyf "path" lib JsonUtil.gets
+        let pathName = sprintf "%s-%s.zip" name ver
+        let url    = sprintf "https://www.nuget.org/api/v2/package/%s/%s" name ver
+        let sha256 = nixPrefetchUrl url pathName
+        let path   = JsonUtil.getkeyf "path" lib JsonUtil.gets
 
         let filterFile (file:string) =
           not (file.EndsWith(".nuspec") || file.EndsWith(".txt"))
@@ -70,7 +84,7 @@ module Application =
         let (objMap:Map<string, Json>) =
             Map.ofList [ "baseName", Json.String name
                          "version", Json.String ver
-                         "sha512", Json.String sha512
+                         "sha256", Json.String sha256
                          "path", Json.String path
                          "outputFiles", Json.Array (List.map Json.String truncatedOutputFiles)
                        ]
