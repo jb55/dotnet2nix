@@ -2,6 +2,20 @@
   patchelf, libunwind, coreclr, libuuid, curl, zlib, icu }:
 
 let
+  env = ''
+    tmp="$(mktemp -d)"
+    export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+    export DOTNET_CLI_TELEMETRY_OPTOUT=1
+    export HOME="$tmp"
+  '';
+
+  dotnetBuildPhase = { path, target, pkgset, config, project }: ''
+    ${env}
+    pushd ${path}
+    dotnet publish -r ${target} --source ${pkgset} -c ${config} ${project}
+    popd
+  '';
+
   mkDotNetCoreProject = attrs@{ version, project, config ? "Release", target ? "linux-x64", ... }:
     let
       rpath = stdenv.lib.makeLibraryPath [ libunwind coreclr libuuid stdenv.cc.cc curl zlib icu ];
@@ -18,14 +32,14 @@ let
 
       make-nuget-pkgset = callPackage ./nix/make-nuget-packageset {};
 
-      nuget-pkgs    = map make-nuget-pkg nuget-pkg-json;
-      nuget-pkg-dir = make-nuget-pkgset "${project}-nuget-pkgs" nuget-pkgs;
+      nuget-pkgs   = map make-nuget-pkg nuget-pkg-json;
+      nuget-pkgset = make-nuget-pkgset "${project}-nuget-pkgs" nuget-pkgs;
 
       nuget-config = writeText "nuget.config" ''
         <configuration>
         <packageSources>
             <clear />
-            <add key="local" value="${nuget-pkg-dir}" />
+            <add key="local" value="${nuget-pkgset}" />
         </packageSources>
         </configuration>
       '';
@@ -34,7 +48,7 @@ let
         {
           "runtimeOptions": {
             "additionalProbingPaths": [
-              "${nuget-pkg-dir}"
+              "${nuget-pkgset}"
             ]
           }
         }
@@ -63,7 +77,6 @@ let
       buildInputs = [ dotnet-sdk makeWrapper patchelf ];
 
       configurePhase = ''
-        cp ${nuget-config} nuget.config
       '';
 
       patchPhase = ''
@@ -72,14 +85,11 @@ let
         sed -i '/DotNetCliToolReference/d' ${project}/${project}.fsproj || :
       '';
 
-      buildPhase = ''
-        tmp="$(mktemp -d)"
-        export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
-        export DOTNET_CLI_TELEMETRY_OPTOUT=1
-        export HOME="$tmp"
-        dotnet publish -r ${target} --source ${nuget-pkg-dir} -c ${config} ${project}
-      '';
-
+      buildPhase = dotnetBuildPhase {
+        inherit target config project;
+        path = "./";
+        pkgset = nuget-pkgset;
+      };
 
       installPhase = ''
         mkdir -p $out
