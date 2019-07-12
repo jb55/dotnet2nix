@@ -6,6 +6,7 @@ attrs @
 , outputFiles
 , url ? "https://www.nuget.org/api/v2/package/${baseName}/${version}"
 , sha256 ? ""
+, sha512
 , md5 ? ""
 , ...
 }:
@@ -17,7 +18,7 @@ else
 
     make-cp = outFile: ''
       outFile="${outFile}"
-      [[ ''${outFile: -7} == ".sha256" ]] && echo -n "${sha256}" \
+      [[ ''${outFile: -7} == ".sha512" ]] && echo -n "${sha512}" \
         | ${lib.getBin xxd}/bin/xxd -r -p \
         | base64 -w500 > ${outFile}
       cp -r --parents -t $out "${outFile}" || :

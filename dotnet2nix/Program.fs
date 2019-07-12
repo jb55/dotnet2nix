@@ -68,6 +68,11 @@ module Application =
         let sha256 = nixPrefetchUrl url pathName
         let path   = JsonUtil.getkeyf "path" lib JsonUtil.gets
 
+        let sha512 =
+          JsonUtil.getkeyf "sha512" lib JsonUtil.gets
+            |> Convert.FromBase64String
+            |> JsonUtil.byteHexStr
+
         let filterFile (file:string) =
           not (file.EndsWith(".nuspec") || file.EndsWith(".txt"))
 
@@ -85,6 +90,7 @@ module Application =
             Map.ofList [ "baseName", Json.String name
                          "version", Json.String ver
                          "sha256", Json.String sha256
+                         "sha512", Json.String sha512
                          "path", Json.String path
                          "outputFiles", Json.Array (List.map Json.String truncatedOutputFiles)
                        ]

@@ -4,3 +4,4 @@ bin/
 Properties/
 dotnet2nix.fsproj.user
 nuget-packages.json
+/result

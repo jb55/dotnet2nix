@@ -1,8 +1,70 @@
 [
   {
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetHostResolver",
+    "outputFiles": [
+      "runtimes/linux-x64/native/libhostfxr.so",
+      "runtime.linux-x64.microsoft.netcore.dotnethostresolver.2.2.4.nupkg.sha512",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "runtime.linux-x64.microsoft.netcore.dotnethostresolver/2.2.4",
+    "sha256": "1j6fik976schwmplx9qyb6pp98rkjanp8p6h5pyyzh069ch8lysc",
+    "sha512": "bed87d7606487848972865651199b9e3ce8f849a11c5ccecb25b7a8028e672d6580e0f830ff638ed20797fe4c589352dcea0c0368570d544ca00d5aee107b387",
+    "version": "2.2.4"
+  },
+  {
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetHostPolicy",
+    "outputFiles": [
+      "runtimes/linux-x64/native/libhostpolicy.so",
+      "runtime.linux-x64.microsoft.netcore.dotnethostpolicy.2.2.4.nupkg.sha512",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "runtime.linux-x64.microsoft.netcore.dotnethostpolicy/2.2.4",
+    "sha256": "18j3n3nzfd85wqn9vj6i0ngknr9jm5hp22nrkrv5j2fc3yvx16dy",
+    "sha512": "cab082b63d295f22313ad62da934d14fc932b90ca8f9a4d4506b11f0cf083014cc5f1dc1bddba57cbf0dc4d26b1b373393ddc4a800490348c505070d7f784bdb",
+    "version": "2.2.4"
+  },
+  {
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetAppHost",
+    "outputFiles": [
+      "runtimes/linux-x64/native/apphost",
+      "runtime.linux-x64.microsoft.netcore.dotnetapphost.2.2.4.nupkg.sha512",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "runtime.linux-x64.microsoft.netcore.dotnetapphost/2.2.4",
+    "sha256": "18s9jdmhjr2ijr7ihn3ixw1ssp6s242nbwcykgc35x4cq43qkfhs",
+    "sha512": "789c98f60d90aeb961b32d75926813fe2ff1acca3952b47f8825ef3e6dd15fe8945f6f5239d0f123786e15914f7195b000907a7cb1b191baa4cabadf6c845b55",
+    "version": "2.2.4"
+  },
+  {
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.App",
+    "outputFiles": [
+      "tools/crossgen",
+      "runtimes",
+      "runtime.linux-x64.microsoft.netcore.app.2.2.4.nupkg.sha512",
+      "ref/netstandard/_._",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "runtime.linux-x64.microsoft.netcore.app/2.2.4",
+    "sha256": "0c87jh1c280a82gnfvm72w0y3mlv3h1azs6v5ca6qx8l5acsmgc0",
+    "sha512": "fdcfaf81c351ed9d68c4195ff526f6aa71d732bd5e0b6a5a84f37ddfbea596515e33209a399b7e148aee019b07cad2672daad417b7ee285e1c21fafd7d538eac",
+    "version": "2.2.4"
+  },
+  {
     "baseName": "NETStandard.Library",
     "outputFiles": [
-      "netstandard.library.2.0.0.nupkg.sha512",
+      "netstandard.library.2.0.3.nupkg.sha512",
       "lib/netstandard1.0/_._",
       "build",
       "THIRD-PARTY-NOTICES.TXT",
@@ -10,83 +72,105 @@
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "netstandard.library/2.0.0",
-    "sha256": "1bc4ba8ahgk15m8k4nd7x406nhi0kwqzbgjk2dmw52ss553xz7iy",
-    "version": "2.0.0"
+    "path": "netstandard.library/2.0.3",
+    "sha256": "1fn9fxppfcg4jgypp2pmrpr6awl3qz1xmnri0cygpkwvyx27df1y",
+    "sha512": "b2de3b3e8b19487ae3102763788cd941bce2bd804916fe8fda7bf8723db2a5d236d380cefaf67b979ada18c897e1e5cc279dd17ce220fbfb380c7559e7836ed8",
+    "version": "2.0.3"
   },
   {
-    "baseName": "Microsoft.NETCore.Platforms",
+    "baseName": "Microsoft.NETCore.Targets",
     "outputFiles": [
       "runtime.json",
-      "microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+      "microsoft.netcore.targets.2.0.0.nupkg.sha512",
       "lib/netstandard1.0/_._",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.platforms/2.0.0",
-    "sha256": "1fk2fk2639i7nzy58m9dvpdnzql4vb8yl8vr19r2fp8lmj9w2jr0",
+    "path": "microsoft.netcore.targets/2.0.0",
+    "sha256": "0nsrrhafvxqdx8gmlgsz612bmlll2w3l2qn2ygdzr92rp1nqyka2",
+    "sha512": "a1d3ffb498f5cfa1b2945a4da3ba4cb5b77fc508130b7131d887faddd4532f7f1b04d330b019c9f9171e508c87751042d288a4ff735e8584fea040b006120cdd",
     "version": "2.0.0"
+  },
+  {
+    "baseName": "Microsoft.NETCore.Platforms",
+    "outputFiles": [
+      "runtime.json",
+      "microsoft.netcore.platforms.2.2.0.nupkg.sha512",
+      "lib/netstandard1.0/_._",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "microsoft.netcore.platforms/2.2.0",
+    "sha256": "1v9knzss9y7l8wg912jparrwyk37jn9gp40nrxafh26hdk5axnpx",
+    "sha512": "4ff27e5d9a3e6217854c987cff8ba87890ddcf9a8e98e3248e0ebf54bf261c9f409cff3e7e657f91c6f1797b286f48ab44d88285ff95d2283530244ba7ff8aa2",
+    "version": "2.2.0"
   },
   {
     "baseName": "Microsoft.NETCore.DotNetHostResolver",
     "outputFiles": [
       "runtime.json",
-      "microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+      "microsoft.netcore.dotnethostresolver.2.2.4.nupkg.sha512",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.dotnethostresolver/2.0.0",
-    "sha256": "0xy45xqmdqz7r6v0g8m7c1rp761ghavjl8nzxiyrpbp0wccxl3xb",
-    "version": "2.0.0"
+    "path": "microsoft.netcore.dotnethostresolver/2.2.4",
+    "sha256": "0s48lksbj40l2k7p7sr1ydcwqvf226wk20mbylslls1hp9wsi0sj",
+    "sha512": "11836bd1f249ccb20690b76e0c0d53df295d0518568d89ae45842edcd368857f77284ada173cf979f5de0ebc9cf69c1b9d1c8df862a028fdefecd04d0fd4ea62",
+    "version": "2.2.4"
   },
   {
     "baseName": "Microsoft.NETCore.DotNetHostPolicy",
     "outputFiles": [
       "runtime.json",
-      "microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+      "microsoft.netcore.dotnethostpolicy.2.2.4.nupkg.sha512",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.dotnethostpolicy/2.0.0",
-    "sha256": "1zz9yfzcvcai4il78s3phjp1hryib2zk3w2r16v3fxm2yllssyaf",
-    "version": "2.0.0"
+    "path": "microsoft.netcore.dotnethostpolicy/2.2.4",
+    "sha256": "11jxgmf4v617a2islrb2xwz6sm8i6c74yql3z4yvl3ifj5n42m1i",
+    "sha512": "c2a5a19911bf67247cc6ea84d4f0367313c9e5c04dd92909ab7711f5e4beeffe112ed2abcf4aa04088317757babb109cb38e3f46430288fd3e46e28885ce968a",
+    "version": "2.2.4"
   },
   {
     "baseName": "Microsoft.NETCore.DotNetAppHost",
     "outputFiles": [
       "runtime.json",
-      "microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+      "microsoft.netcore.dotnetapphost.2.2.4.nupkg.sha512",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.dotnetapphost/2.0.0",
-    "sha256": "0yixdk1rslbznrl50d6pyhg50xxr6jbfb1qpy2yd8xv44s4shgwd",
-    "version": "2.0.0"
+    "path": "microsoft.netcore.dotnetapphost/2.2.4",
+    "sha256": "1rw7kh5505fj15929x5xj4lvv7d5i647v45dkxydha4zcsw1hn3f",
+    "sha512": "aa4e51458bafadde6107453172f69b39099b2cc5e9472ae9eabf377ef434496b40bde7314560b180477fde178699ac4258a35276a499012ed428b29dfcdbc09e",
+    "version": "2.2.4"
   },
   {
     "baseName": "Microsoft.NETCore.App",
     "outputFiles": [
       "runtime.json",
       "ref",
-      "microsoft.netcore.app.2.0.0.nupkg.sha512",
-      "build/netcoreapp2.0/Microsoft.NETCore.App.targets",
-      "build/netcoreapp2.0/Microsoft.NETCore.App.props",
+      "microsoft.netcore.app.2.2.4.nupkg.sha512",
+      "build/netcoreapp2.2/Microsoft.NETCore.App.targets",
+      "build/netcoreapp2.2/Microsoft.NETCore.App.props",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.app/2.0.0",
-    "sha256": "0j8xkssrashyxrmdraci6kmj2gdrdxb0z61jwnzf1r9r2kqrd7d2",
-    "version": "2.0.0"
+    "path": "microsoft.netcore.app/2.2.4",
+    "sha256": "1g3svhc4swbz0w1s5g17lqmr8bgcq4b5alvzay0xr6awprgycwjd",
+    "sha512": "b1d99572c33cc8292fd595234e730775c1218ff4b1b193446c4d1a9c7811b2fbb46897c428586c2d39dd6529162dd37cfe10c3193e32e0f43a4e407de25feaf4",
+    "version": "2.2.4"
   },
   {
     "baseName": "FSharp.Core",
@@ -98,55 +182,63 @@
     ],
     "path": "fsharp.core/4.6.2",
     "sha256": "0b6rlhxpj2lzpzs7b28rap1l1gf4i15kimks3sig855swirikd6p",
+    "sha512": "ff0689ddaeeeecc8c53869d739fa246c6d4dd451fb54298fdc5c35b49f10ef99088fad0b6012f7798cda6fd8438a62f9136d6e850ff5c1fd383377510187a697",
     "version": "4.6.2"
   },
   {
     "baseName": "FParsec",
     "outputFiles": [
+      "lib/portable-net45+win8+wp8+wpa81/FParsecCS.xml",
+      "lib/portable-net45+win8+wp8+wpa81/FParsecCS.dll",
+      "lib/portable-net45+win8+wp8+wpa81/FParsec.xml",
+      "lib/portable-net45+win8+wp8+wpa81/FParsec.dll",
+      "lib/netstandard1.6/FParsecCS.xml",
+      "lib/netstandard1.6/FParsecCS.dll",
+      "lib/netstandard1.6/FParsec.xml",
+      "lib/netstandard1.6/FParsec.dll",
+      "lib/net40-client/FParsecCS.xml",
       "lib/net40-client/FParsecCS.dll",
-      "lib/net40-client/FParsecCS.XML",
+      "lib/net40-client/FParsec.xml",
       "lib/net40-client/FParsec.dll",
-      "lib/net40-client/FParsec.XML",
-      "fparsec.1.0.1.nupkg.sha512",
+      "fparsec.1.0.3.nupkg.sha512",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "fparsec/1.0.1",
-    "sha256": "0v3qyicjfw80p5an3ziqbd3kwp3bvx3dv117pjmzlx6mvc25ibj2",
-    "version": "1.0.1"
+    "path": "fparsec/1.0.3",
+    "sha256": "124p2sqvnwnq752hhvf6rl2k14w05xbsxszb6yf1623ggnc16xp0",
+    "sha512": "d15a196a9712507b0d0a2c586b0c7c44564724c455ca468ab24b3938e51744fd1b642a6bed408fea42236d51461c8aaa0463ed20250ccbb8f9db5b07d19726ad",
+    "version": "1.0.3"
   },
   {
     "baseName": "Chiron",
     "outputFiles": [
-      "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Chiron.xml",
-      "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Chiron.pdb",
-      "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Chiron.dll",
-      "lib/net40/Chiron.xml",
-      "lib/net40/Chiron.pdb",
-      "lib/net40/Chiron.dll",
-      "chiron.6.2.1.nupkg.sha512",
+      "lib/netstandard2.0/Chiron.pdb",
+      "lib/netstandard2.0/Chiron.dll",
+      "lib/net452/Chiron.pdb",
+      "lib/net452/Chiron.dll",
+      "chiron.6.3.1.nupkg.sha512",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "chiron/6.2.1",
-    "sha256": "16yxfh4qgfd4qnwgs3nlsnxjd6n2b0h65lq3nz08ya81n10b8wcv",
-    "version": "6.2.1"
+    "path": "chiron/6.3.1",
+    "sha256": "0cakmnnwjj0gvwdwz8xmrgyiby13cb969jk5z7z5xav6qqq9jcmf",
+    "sha512": "4ac7f9f04dbae67741f1f826eb9561033235a03213a888bb71b99cc0e82ddcb019a73bc9222f25830658d215eea7cdcc0fd150345ce13d560ca29e203fedba9f",
+    "version": "6.3.1"
   },
   {
     "baseName": "Aether",
     "outputFiles": [
-      "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Aether.xml",
-      "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Aether.pdb",
-      "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Aether.dll",
-      "lib/net35/Aether.xml",
-      "lib/net35/Aether.pdb",
-      "lib/net35/Aether.dll",
-      "aether.8.0.2.nupkg.sha512",
+      "lib/netstandard1.6/Aether.xml",
+      "lib/netstandard1.6/Aether.dll",
+      "lib/net45/Aether.xml",
+      "lib/net45/Aether.dll",
+      "aether.8.2.0.nupkg.sha512",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "aether/8.0.2",
-    "sha256": "11k23svgc91fzaw7sy3dyhxhwpnb5l00l2rvgdzn02brdp737bsc",
-    "version": "8.0.2"
+    "path": "aether/8.2.0",
+    "sha256": "1pkgbzc0cjqm0gk53vxhin5bk6aqnmw4w2877mkmngx3csl9al4i",
+    "sha512": "c26443369354a99dfb69db7aec68cfbfe258ff5f32ae3721cffbd1daf7fb884ac0930130fdcb64724bf7d2ea8bd906b0752c3a6cbf6a4f2e94a572eb4af653d2",
+    "version": "8.2.0"
   }
 ]
