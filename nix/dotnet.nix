@@ -1,5 +1,5 @@
 { lib, stdenv, nuget, dotnet-sdk, makeWrapper, patchelf, libunwind, coreclr
-, libuuid, curl, zlib, openssl, icu }:
+, libuuid, curl, zlib, openssl, icu, writeScript, bash }:
 rec {
 
   rpath = stdenv.lib.makeLibraryPath [ libunwind coreclr libuuid openssl stdenv.cc.cc curl zlib icu ];
@@ -34,6 +34,12 @@ mkDotNetCoreProject = attrs@{
       nuget-pkgset   = nuget.mkNugetPkgSetFromJson nuget-pkg-json;
       nuget-config   = nuget.mkNugetConfig project nuget-pkgset;
       runtime-config = nuget.mkRuntimeConfig nuget-pkgset;
+
+      bin-script = writeScript project ''
+        #!${bash}/bin/bash
+        exec ${dotnet-sdk}/bin/dotnet exec @@DEST@@/bin/${project}.dll "$@"
+      '';
+
       netCoreMajorVersion = "2.2";
       lesrc = src;
     in
@@ -85,16 +91,11 @@ mkDotNetCoreProject = attrs@{
 
         if [ -f "$out/bin/${project}" ]
         then
-          patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" "$out/bin/${project}" || :
-          patchelf --set-rpath "${rpath}" "$out/bin/${project}" || :
+          cp ${bin-script} $out/bin/${project}
+          sed -i s,@@DEST@@,$out, $out/bin/${project}
 
           wrapProgram "$out/bin/${project}" \
             --prefix LD_LIBRARY_PATH : ${rpath}
-
-          # need this because managed dlls get upset if the name is different
-          mv $out/bin/${project} $out/bin/${project}-${config}
-          sed -i s/.${project}-wrapped/${project}/g $out/bin/${project}-${config}
-          mv $out/bin/.${project}-wrapped $out/bin/${project}
         fi
 
         find $out/bin -type f -name "*.so" -exec patchelf --set-rpath "${rpath}" {} \;
