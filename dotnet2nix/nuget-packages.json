@@ -186,6 +186,20 @@
     "version": "4.6.2"
   },
   {
+    "baseName": "FSharp.Collections.ParallelSeq",
+    "outputFiles": [
+      "lib/netstandard2.0/FSharp.Collections.ParallelSeq.dll",
+      "lib/net45/FSharp.Collections.ParallelSeq.dll",
+      "fsharp.collections.parallelseq.1.1.2.nupkg.sha512",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "fsharp.collections.parallelseq/1.1.2",
+    "sha256": "042c4iafwhxwrw6wzav4g2vx7nbcaqzbz27nl7dh0xi43a9v6wc7",
+    "sha512": "dcf39bd44e39547efb372df8aed0ba4447f76b33b7dda66e1d356c18491f986a535dc09b00f5f60d6459008ac49fd062abf7222f67e89e05d0dbb192aab80a3d",
+    "version": "1.1.2"
+  },
+  {
     "baseName": "FParsec",
     "outputFiles": [
       "lib/portable-net45+win8+wp8+wpa81/FParsecCS.xml",

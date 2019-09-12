@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="Chiron" Version="6.3.1" />
+    <PackageReference Include="FSharp.Collections.ParallelSeq" Version="1.1.2" />
   </ItemGroup>
 
 </Project>
