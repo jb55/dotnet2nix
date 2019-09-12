@@ -8,6 +8,7 @@ module Application =
     open Chiron
     open System
     open System.IO
+    open FSharp.Collections.ParallelSeq
     open Dotnet2Nix.Util
     open System.Diagnostics
 
@@ -56,8 +57,8 @@ module Application =
         proc.WaitForExit()
         output.Trim()
 
+    let rec makePackage ((libName,lib):string * Json) =
 
-    let rec makePackage (libs:Json list) (libName:string) (lib:Json) =
         let (name, ver) =
           match libName.Split('/') with
             | [| name; ver |] -> (name, ver)
@@ -95,7 +96,7 @@ module Application =
                          "outputFiles", Json.Array (List.map Json.String truncatedOutputFiles)
                        ]
 
-        Json.Object objMap :: libs
+        Json.Object objMap
 
     let usage = lazy let _ = Console.WriteLine("dotnet2nix Some.Project/obj/project.assets.json [output-nuget-packages.json]")
                      1
@@ -117,7 +118,7 @@ module Application =
           then usage.Force()
           else
             let libs = loadLibraries input
-            let pkgs = Map.fold makePackage List.empty libs
+            let pkgs = PSeq.map makePackage (Map.toSeq libs) |> PSeq.toList
             let serialized = Json.formatWith JsonFormattingOptions.Pretty (Json.Array pkgs)
             Console.Error.WriteLine(String.Format("writing to {0}", output))
             File.WriteAllText(output, serialized)
