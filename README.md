@@ -5,5 +5,13 @@
 
 ## Installation
 
-  Soon
+```
+nix-env -if .
+```
+
+## How to use
+
+TODO
+
+
 
