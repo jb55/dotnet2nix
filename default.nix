@@ -9,11 +9,7 @@ let pkg =
     patchelf, libunwind, coreclr, libuuid, curl, zlib, icu }:
 
   let
-    nuget = callPackage ./nix/nuget.nix {};
-    dotnet = callPackage ./nix/dotnet.nix {
-      inherit nuget coreclr dotnet-sdk;
-    };
-
+    dotnet = callPackage ./dotnet-build.nix {};
   in dotnet.mkDotNetCoreProject {
     project = "dotnet2nix";
     version = "1.0.0";
