@@ -1,81 +1,32 @@
 [
   {
-    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetHostResolver",
+    "baseName": "FSharp.Collections.ParallelSeq",
     "outputFiles": [
-      "runtimes/linux-x64/native/libhostfxr.so",
-      "runtime.linux-x64.microsoft.netcore.dotnethostresolver.2.2.4.nupkg.sha512",
-      "THIRD-PARTY-NOTICES.TXT",
-      "LICENSE.TXT",
+      "lib/netstandard2.0/FSharp.Collections.ParallelSeq.dll",
+      "lib/net45/FSharp.Collections.ParallelSeq.dll",
+      "fsharp.collections.parallelseq.1.1.2.nupkg.sha512",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "runtime.linux-x64.microsoft.netcore.dotnethostresolver/2.2.4",
-    "sha256": "1j6fik976schwmplx9qyb6pp98rkjanp8p6h5pyyzh069ch8lysc",
-    "sha512": "bed87d7606487848972865651199b9e3ce8f849a11c5ccecb25b7a8028e672d6580e0f830ff638ed20797fe4c589352dcea0c0368570d544ca00d5aee107b387",
-    "version": "2.2.4"
+    "path": "fsharp.collections.parallelseq/1.1.2",
+    "sha256": "042c4iafwhxwrw6wzav4g2vx7nbcaqzbz27nl7dh0xi43a9v6wc7",
+    "sha512": "dcf39bd44e39547efb372df8aed0ba4447f76b33b7dda66e1d356c18491f986a535dc09b00f5f60d6459008ac49fd062abf7222f67e89e05d0dbb192aab80a3d",
+    "version": "1.1.2"
   },
   {
-    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetHostPolicy",
+    "baseName": "Microsoft.NETCore.DotNetAppHost",
     "outputFiles": [
-      "runtimes/linux-x64/native/libhostpolicy.so",
-      "runtime.linux-x64.microsoft.netcore.dotnethostpolicy.2.2.4.nupkg.sha512",
+      "runtime.json",
+      "microsoft.netcore.dotnetapphost.2.1.16.nupkg.sha512",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "runtime.linux-x64.microsoft.netcore.dotnethostpolicy/2.2.4",
-    "sha256": "18j3n3nzfd85wqn9vj6i0ngknr9jm5hp22nrkrv5j2fc3yvx16dy",
-    "sha512": "cab082b63d295f22313ad62da934d14fc932b90ca8f9a4d4506b11f0cf083014cc5f1dc1bddba57cbf0dc4d26b1b373393ddc4a800490348c505070d7f784bdb",
-    "version": "2.2.4"
-  },
-  {
-    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetAppHost",
-    "outputFiles": [
-      "runtimes/linux-x64/native/apphost",
-      "runtime.linux-x64.microsoft.netcore.dotnetapphost.2.2.4.nupkg.sha512",
-      "THIRD-PARTY-NOTICES.TXT",
-      "LICENSE.TXT",
-      ".signature.p7s",
-      ".nupkg.metadata"
-    ],
-    "path": "runtime.linux-x64.microsoft.netcore.dotnetapphost/2.2.4",
-    "sha256": "18s9jdmhjr2ijr7ihn3ixw1ssp6s242nbwcykgc35x4cq43qkfhs",
-    "sha512": "789c98f60d90aeb961b32d75926813fe2ff1acca3952b47f8825ef3e6dd15fe8945f6f5239d0f123786e15914f7195b000907a7cb1b191baa4cabadf6c845b55",
-    "version": "2.2.4"
-  },
-  {
-    "baseName": "runtime.linux-x64.Microsoft.NETCore.App",
-    "outputFiles": [
-      "tools/crossgen",
-      "runtimes",
-      "runtime.linux-x64.microsoft.netcore.app.2.2.4.nupkg.sha512",
-      "ref/netstandard/_._",
-      "THIRD-PARTY-NOTICES.TXT",
-      "LICENSE.TXT",
-      ".signature.p7s",
-      ".nupkg.metadata"
-    ],
-    "path": "runtime.linux-x64.microsoft.netcore.app/2.2.4",
-    "sha256": "0c87jh1c280a82gnfvm72w0y3mlv3h1azs6v5ca6qx8l5acsmgc0",
-    "sha512": "fdcfaf81c351ed9d68c4195ff526f6aa71d732bd5e0b6a5a84f37ddfbea596515e33209a399b7e148aee019b07cad2672daad417b7ee285e1c21fafd7d538eac",
-    "version": "2.2.4"
-  },
-  {
-    "baseName": "NETStandard.Library",
-    "outputFiles": [
-      "netstandard.library.2.0.3.nupkg.sha512",
-      "lib/netstandard1.0/_._",
-      "build",
-      "THIRD-PARTY-NOTICES.TXT",
-      "LICENSE.TXT",
-      ".signature.p7s",
-      ".nupkg.metadata"
-    ],
-    "path": "netstandard.library/2.0.3",
-    "sha256": "1fn9fxppfcg4jgypp2pmrpr6awl3qz1xmnri0cygpkwvyx27df1y",
-    "sha512": "b2de3b3e8b19487ae3102763788cd941bce2bd804916fe8fda7bf8723db2a5d236d380cefaf67b979ada18c897e1e5cc279dd17ce220fbfb380c7559e7836ed8",
-    "version": "2.0.3"
+    "path": "microsoft.netcore.dotnetapphost/2.1.16",
+    "sha256": "046ayrwqc78g0h9m474xki97h7b3sv6fmqwki1jp0a50798z8glk",
+    "sha512": "ee5d074a8a3a730645fa10f2aa42d3bfb2d6ca31790e8b49408a9c1c4260fcb43b7b857d8fc7524fef6a066494729ef9ca24f317322245f2f9b6263ca68333f3",
+    "version": "2.1.16"
   },
   {
     "baseName": "Microsoft.NETCore.Targets",
@@ -94,110 +45,146 @@
     "version": "2.0.0"
   },
   {
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetAppHost",
+    "outputFiles": [
+      "runtimes/linux-x64/native/apphost",
+      "runtime.linux-x64.microsoft.netcore.dotnetapphost.2.1.16.nupkg.sha512",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "runtime.linux-x64.microsoft.netcore.dotnetapphost/2.1.16",
+    "sha256": "1952ngs6rw1k6yh6bnnq0ag476fjd532mznyfmb047z97vl698kj",
+    "sha512": "4bdb181ab829d09b7de96c6377fcd73bbcb051daa6bd9e1a88e2664608d17f7a1f1c815a1e48bb59e7466bd3eeb8f2ea2c03d781f49274cc229d51ae3e1adfa8",
+    "version": "2.1.16"
+  },
+  {
+    "baseName": "Chiron",
+    "outputFiles": [
+      "lib/netstandard2.0/Chiron.pdb",
+      "lib/netstandard2.0/Chiron.dll",
+      "lib/net452/Chiron.pdb",
+      "lib/net452/Chiron.dll",
+      "chiron.6.3.1.nupkg.sha512",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "chiron/6.3.1",
+    "sha256": "0cakmnnwjj0gvwdwz8xmrgyiby13cb969jk5z7z5xav6qqq9jcmf",
+    "sha512": "4ac7f9f04dbae67741f1f826eb9561033235a03213a888bb71b99cc0e82ddcb019a73bc9222f25830658d215eea7cdcc0fd150345ce13d560ca29e203fedba9f",
+    "version": "6.3.1"
+  },
+  {
+    "baseName": "Microsoft.NETCore.DotNetHostPolicy",
+    "outputFiles": [
+      "runtime.json",
+      "microsoft.netcore.dotnethostpolicy.2.1.16.nupkg.sha512",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "microsoft.netcore.dotnethostpolicy/2.1.16",
+    "sha256": "00fr0byh1bp4az1s5n59sbmnpkc5z82chr4wvswd1r7x1cddp1qv",
+    "sha512": "8f90927e4a3c3146922565f768b61e20c8ff3317f0f74c750d9e33471426e8aa5155ca31ce1201db6174c4e1e9eddf80c1b1b3087c3559c4a58305bcc80dd246",
+    "version": "2.1.16"
+  },
+  {
     "baseName": "Microsoft.NETCore.Platforms",
     "outputFiles": [
       "runtime.json",
-      "microsoft.netcore.platforms.2.2.0.nupkg.sha512",
+      "microsoft.netcore.platforms.2.1.8.nupkg.sha512",
       "lib/netstandard1.0/_._",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.platforms/2.2.0",
-    "sha256": "1v9knzss9y7l8wg912jparrwyk37jn9gp40nrxafh26hdk5axnpx",
-    "sha512": "4ff27e5d9a3e6217854c987cff8ba87890ddcf9a8e98e3248e0ebf54bf261c9f409cff3e7e657f91c6f1797b286f48ab44d88285ff95d2283530244ba7ff8aa2",
-    "version": "2.2.0"
+    "path": "microsoft.netcore.platforms/2.1.8",
+    "sha256": "0v7wh0p8lxcmwkwxa8f4ja6zzwg34l3zxjybjv7sq91k5hcs5md8",
+    "sha512": "4d77f83651303b7d578c6b4f7a451d8419c386780dc93ac546dc74c56d4b84699a1bfc734bcae31fb23ca492237737475ca04d0a83630c1829fccc60e2b7c428",
+    "version": "2.1.8"
   },
   {
-    "baseName": "Microsoft.NETCore.DotNetHostResolver",
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetHostPolicy",
     "outputFiles": [
-      "runtime.json",
-      "microsoft.netcore.dotnethostresolver.2.2.4.nupkg.sha512",
+      "runtimes/linux-x64/native/libhostpolicy.so",
+      "runtime.linux-x64.microsoft.netcore.dotnethostpolicy.2.1.16.nupkg.sha512",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.dotnethostresolver/2.2.4",
-    "sha256": "0s48lksbj40l2k7p7sr1ydcwqvf226wk20mbylslls1hp9wsi0sj",
-    "sha512": "11836bd1f249ccb20690b76e0c0d53df295d0518568d89ae45842edcd368857f77284ada173cf979f5de0ebc9cf69c1b9d1c8df862a028fdefecd04d0fd4ea62",
-    "version": "2.2.4"
+    "path": "runtime.linux-x64.microsoft.netcore.dotnethostpolicy/2.1.16",
+    "sha256": "1jg7vcw4zsnak9vhb0f719v5zki4zvzlr52nfnxfmymmna6gvvpi",
+    "sha512": "e24df52044ec820b0551f5b112fa0a7e53fc681b2cb44667dc5019de63b743aeaa744c6c47ef372d03dacb5d0859dde8f0c6d359d635c710ac4967735428fdce",
+    "version": "2.1.16"
   },
   {
-    "baseName": "Microsoft.NETCore.DotNetHostPolicy",
+    "baseName": "Aether",
     "outputFiles": [
-      "runtime.json",
-      "microsoft.netcore.dotnethostpolicy.2.2.4.nupkg.sha512",
-      "THIRD-PARTY-NOTICES.TXT",
-      "LICENSE.TXT",
+      "lib/netstandard1.6/Aether.xml",
+      "lib/netstandard1.6/Aether.dll",
+      "lib/net45/Aether.xml",
+      "lib/net45/Aether.dll",
+      "aether.8.2.0.nupkg.sha512",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.dotnethostpolicy/2.2.4",
-    "sha256": "11jxgmf4v617a2islrb2xwz6sm8i6c74yql3z4yvl3ifj5n42m1i",
-    "sha512": "c2a5a19911bf67247cc6ea84d4f0367313c9e5c04dd92909ab7711f5e4beeffe112ed2abcf4aa04088317757babb109cb38e3f46430288fd3e46e28885ce968a",
-    "version": "2.2.4"
-  },
-  {
-    "baseName": "Microsoft.NETCore.DotNetAppHost",
-    "outputFiles": [
-      "runtime.json",
-      "microsoft.netcore.dotnetapphost.2.2.4.nupkg.sha512",
-      "THIRD-PARTY-NOTICES.TXT",
-      "LICENSE.TXT",
-      ".signature.p7s",
-      ".nupkg.metadata"
-    ],
-    "path": "microsoft.netcore.dotnetapphost/2.2.4",
-    "sha256": "1rw7kh5505fj15929x5xj4lvv7d5i647v45dkxydha4zcsw1hn3f",
-    "sha512": "aa4e51458bafadde6107453172f69b39099b2cc5e9472ae9eabf377ef434496b40bde7314560b180477fde178699ac4258a35276a499012ed428b29dfcdbc09e",
-    "version": "2.2.4"
+    "path": "aether/8.2.0",
+    "sha256": "1pkgbzc0cjqm0gk53vxhin5bk6aqnmw4w2877mkmngx3csl9al4i",
+    "sha512": "c26443369354a99dfb69db7aec68cfbfe258ff5f32ae3721cffbd1daf7fb884ac0930130fdcb64724bf7d2ea8bd906b0752c3a6cbf6a4f2e94a572eb4af653d2",
+    "version": "8.2.0"
   },
   {
     "baseName": "Microsoft.NETCore.App",
     "outputFiles": [
       "runtime.json",
       "ref",
-      "microsoft.netcore.app.2.2.4.nupkg.sha512",
-      "build/netcoreapp2.2/Microsoft.NETCore.App.targets",
-      "build/netcoreapp2.2/Microsoft.NETCore.App.props",
+      "microsoft.netcore.app.2.1.16.nupkg.sha512",
+      "build/netcoreapp2.1/Microsoft.NETCore.App.targets",
+      "build/netcoreapp2.1/Microsoft.NETCore.App.props",
       "THIRD-PARTY-NOTICES.TXT",
       "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "microsoft.netcore.app/2.2.4",
-    "sha256": "1g3svhc4swbz0w1s5g17lqmr8bgcq4b5alvzay0xr6awprgycwjd",
-    "sha512": "b1d99572c33cc8292fd595234e730775c1218ff4b1b193446c4d1a9c7811b2fbb46897c428586c2d39dd6529162dd37cfe10c3193e32e0f43a4e407de25feaf4",
-    "version": "2.2.4"
+    "path": "microsoft.netcore.app/2.1.16",
+    "sha256": "0daa6i2q4wmicbgry6xdqf86pczdcsj4bk7qm2caa0nbhz24cs6k",
+    "sha512": "e2d9dec01cdd4f56bc3d6e976958eb825f907a5c88c524c79f132e301df13554d9791a3964d3f847b1839b95a83b165ef97871fd7e1e329b7cc0733df0ae7a5c",
+    "version": "2.1.16"
   },
   {
-    "baseName": "FSharp.Core",
+    "baseName": "NETStandard.Library",
     "outputFiles": [
-      "lib",
-      "fsharp.core.4.6.2.nupkg.sha512",
+      "netstandard.library.2.0.3.nupkg.sha512",
+      "lib/netstandard1.0/_._",
+      "build",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "fsharp.core/4.6.2",
-    "sha256": "0b6rlhxpj2lzpzs7b28rap1l1gf4i15kimks3sig855swirikd6p",
-    "sha512": "ff0689ddaeeeecc8c53869d739fa246c6d4dd451fb54298fdc5c35b49f10ef99088fad0b6012f7798cda6fd8438a62f9136d6e850ff5c1fd383377510187a697",
-    "version": "4.6.2"
+    "path": "netstandard.library/2.0.3",
+    "sha256": "1fn9fxppfcg4jgypp2pmrpr6awl3qz1xmnri0cygpkwvyx27df1y",
+    "sha512": "b2de3b3e8b19487ae3102763788cd941bce2bd804916fe8fda7bf8723db2a5d236d380cefaf67b979ada18c897e1e5cc279dd17ce220fbfb380c7559e7836ed8",
+    "version": "2.0.3"
   },
   {
-    "baseName": "FSharp.Collections.ParallelSeq",
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.DotNetHostResolver",
     "outputFiles": [
-      "lib/netstandard2.0/FSharp.Collections.ParallelSeq.dll",
-      "lib/net45/FSharp.Collections.ParallelSeq.dll",
-      "fsharp.collections.parallelseq.1.1.2.nupkg.sha512",
+      "runtimes/linux-x64/native/libhostfxr.so",
+      "runtime.linux-x64.microsoft.netcore.dotnethostresolver.2.1.16.nupkg.sha512",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "fsharp.collections.parallelseq/1.1.2",
-    "sha256": "042c4iafwhxwrw6wzav4g2vx7nbcaqzbz27nl7dh0xi43a9v6wc7",
-    "sha512": "dcf39bd44e39547efb372df8aed0ba4447f76b33b7dda66e1d356c18491f986a535dc09b00f5f60d6459008ac49fd062abf7222f67e89e05d0dbb192aab80a3d",
-    "version": "1.1.2"
+    "path": "runtime.linux-x64.microsoft.netcore.dotnethostresolver/2.1.16",
+    "sha256": "1l9pacf27c983pka36ry4lm8z7ygfjzr005l5agwsfp653jjgxrm",
+    "sha512": "49fda2480005a7d7ef72ca24c8d859a8989e59941394b0d4b02378f0c4ceae17af6f2805e5fbefe8ea8fa321b609262833ee70a18950e495b81c7104648b164c",
+    "version": "2.1.16"
   },
   {
     "baseName": "FParsec",
@@ -224,35 +211,48 @@
     "version": "1.0.3"
   },
   {
-    "baseName": "Chiron",
+    "baseName": "FSharp.Core",
     "outputFiles": [
-      "lib/netstandard2.0/Chiron.pdb",
-      "lib/netstandard2.0/Chiron.dll",
-      "lib/net452/Chiron.pdb",
-      "lib/net452/Chiron.dll",
-      "chiron.6.3.1.nupkg.sha512",
+      "lib",
+      "fsharp.core.4.6.2.nupkg.sha512",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "chiron/6.3.1",
-    "sha256": "0cakmnnwjj0gvwdwz8xmrgyiby13cb969jk5z7z5xav6qqq9jcmf",
-    "sha512": "4ac7f9f04dbae67741f1f826eb9561033235a03213a888bb71b99cc0e82ddcb019a73bc9222f25830658d215eea7cdcc0fd150345ce13d560ca29e203fedba9f",
-    "version": "6.3.1"
+    "path": "fsharp.core/4.6.2",
+    "sha256": "0b6rlhxpj2lzpzs7b28rap1l1gf4i15kimks3sig855swirikd6p",
+    "sha512": "ff0689ddaeeeecc8c53869d739fa246c6d4dd451fb54298fdc5c35b49f10ef99088fad0b6012f7798cda6fd8438a62f9136d6e850ff5c1fd383377510187a697",
+    "version": "4.6.2"
   },
   {
-    "baseName": "Aether",
+    "baseName": "Microsoft.NETCore.DotNetHostResolver",
     "outputFiles": [
-      "lib/netstandard1.6/Aether.xml",
-      "lib/netstandard1.6/Aether.dll",
-      "lib/net45/Aether.xml",
-      "lib/net45/Aether.dll",
-      "aether.8.2.0.nupkg.sha512",
+      "runtime.json",
+      "microsoft.netcore.dotnethostresolver.2.1.16.nupkg.sha512",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
       ".signature.p7s",
       ".nupkg.metadata"
     ],
-    "path": "aether/8.2.0",
-    "sha256": "1pkgbzc0cjqm0gk53vxhin5bk6aqnmw4w2877mkmngx3csl9al4i",
-    "sha512": "c26443369354a99dfb69db7aec68cfbfe258ff5f32ae3721cffbd1daf7fb884ac0930130fdcb64724bf7d2ea8bd906b0752c3a6cbf6a4f2e94a572eb4af653d2",
-    "version": "8.2.0"
+    "path": "microsoft.netcore.dotnethostresolver/2.1.16",
+    "sha256": "0m1gwnw0nnlhdg9q4c51wsx59klnfqc7ra71zdq9qh6ffgmmsq30",
+    "sha512": "7ecf1129152b9225d733ed48e4809822623c329e9126e17cbbab7a1dfb5d49f1df6fc8f04f6ed35ae663c874e556330366f27b8ca9c01c01766379be6be52423",
+    "version": "2.1.16"
+  },
+  {
+    "baseName": "runtime.linux-x64.Microsoft.NETCore.App",
+    "outputFiles": [
+      "tools/crossgen",
+      "runtimes",
+      "runtime.linux-x64.microsoft.netcore.app.2.1.16.nupkg.sha512",
+      "ref/netstandard/_._",
+      "THIRD-PARTY-NOTICES.TXT",
+      "LICENSE.TXT",
+      ".signature.p7s",
+      ".nupkg.metadata"
+    ],
+    "path": "runtime.linux-x64.microsoft.netcore.app/2.1.16",
+    "sha256": "1sbiqnri59zxl7pw6147dvycbxmjz18glsci3wypc96j9jrcfd0w",
+    "sha512": "32dabc0e11d38adab659e8119687776cdbcddf2170f53627981af1790ded64637288920da8d6775c9a42de5c4bd68d3c21d09a9245d2ef7e12777221dea506dd",
+    "version": "2.1.16"
   }
 ]

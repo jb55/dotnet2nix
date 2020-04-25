@@ -16,7 +16,8 @@ rec {
   buildPhase = { path, target, pkgset, config, project }: ''
     ${env}
     pushd ${path}
-    dotnet publish -r ${target} --source ${pkgset} -c ${config} ${project}
+    mkdir -p $out/libexec/${project}
+    dotnet publish -r ${target} --source ${pkgset} -c ${config} ${project} -o $out/libexec/${project}
     popd
   '';
 
@@ -37,15 +38,15 @@ mkDotNetCoreProject = attrs@{
 
       bin-script = writeScript project ''
         #!${bash}/bin/bash
-        exec ${dotnet-sdk}/bin/dotnet exec @@DEST@@/bin/${project}.dll "$@"
+        exec ${dotnet-sdk}/bin/dotnet exec @@DEST@@/libexec/${project}/${project}.dll "$@"
       '';
 
-      netCoreMajorVersion = "2.2";
       lesrc = src;
     in
     stdenv.mkDerivation (attrs // (rec {
       baseName = "${project}";
-      name = "${baseName}-${config}-${attrs.version}";
+      pname = "${baseName}";
+      version = attrs.version;
 
       buildInputs = [ dotnet-sdk makeWrapper patchelf ];
 
@@ -77,25 +78,19 @@ mkDotNetCoreProject = attrs@{
         # shouldn't need tools
         sed -i '/DotNetCliToolReference/d' ${proj}.csproj || :
         sed -i '/DotNetCliToolReference/d' ${proj}.csproj || :
-        find . -name '*.fsproj' -exec \
-          sed -i '/<TargetFramework>/a <RuntimeFrameworkVersion>${dotnet-sdk.netCoreVersion}</RuntimeFrameworkVersion>' {} \;
       '';
 
       installPhase = ''
-        mkdir -p $out/share
+        mkdir -p $out/libexec/${project} $out/bin
         cd ${path}
-        cp -r ${project}/bin/${config}/netcoreapp${netCoreMajorVersion}/${target}/publish $out/bin
         cp ${runtime-config} $out/bin/${project}.runtimeconfig.json
-        cp -r ${project}/Properties $out/bin || :
 
-
-        if [ -f "$out/bin/${project}" ]
+        if [ -f "$out/libexec/${project}/${project}" ]
         then
-          cp ${bin-script} $out/bin/${project}
-          sed -i s,@@DEST@@,$out, $out/bin/${project}
+          <${bin-script} sed "s,@@DEST@@,$out," > $out/bin/${project}
+          chmod +x $out/bin/${project}
 
-          wrapProgram "$out/bin/${project}" \
-            --prefix LD_LIBRARY_PATH : ${rpath}
+          wrapProgram "$out/bin/${project}" --prefix LD_LIBRARY_PATH : ${rpath}
         fi
 
         find $out/bin -type f -name "*.so" -exec patchelf --set-rpath "${rpath}" {} \;
