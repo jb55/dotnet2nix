@@ -1,4 +1,8 @@
-{pkgs ? import <nixpkgs> {}}:
+{pkgs ? import (builtins.fetchTarball {
+  name = "nixos-unstable-2020-04-25";
+  url = "https://github.com/nixos/nixpkgs/archive/22a3bf9fb9edad917fb6cd1066d58b5e426ee975.tar.gz";
+  sha256 = "089hqg2r2ar5piw9q5z3iv0qbmfjc4rl5wkx9z16aqnlras72zsa";
+}) {} }:
 
 let pkg =
   { stdenv, lib, bash, callPackage, writeText, makeWrapper, writeScript, dotnet-sdk,
