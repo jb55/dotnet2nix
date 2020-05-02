@@ -12,8 +12,26 @@ module Application =
     open Dotnet2Nix.Util
     open System.Diagnostics
 
+    let rec combineProjectLibs libs key lib =
+        let libPath =
+            lazy
+            match JsonUtil.strkey "path" lib with
+                | Some s -> s
+                | _ -> raise (new Exception("No path found in project"))
 
-    let rec loadLibraries (file:string) =
+        match JsonUtil.strkey "type" lib with
+            | Some "project" ->
+                let otherProj = Path.GetDirectoryName(libPath.Force())
+                try
+                    let projectLibs = loadLibraries otherProj
+                    let libs_ = Map.fold (fun o k v -> Map.add k v o) libs projectLibs
+                    Map.remove key libs_
+                with
+                    | _ -> Map.remove key libs
+            | _ -> libs
+
+    and loadLibraries (path:string) =
+        let file = Path.Combine(path, "obj/project.assets.json")
         let data = File.ReadAllText(file)
         let json = Json.parse data
 
@@ -22,26 +40,12 @@ module Application =
               | Some (Json.Object o) -> o
               | _ -> raise (new Exception("Library json was not an object"))
 
-        let combineProjectLibs libs key lib =
-            let libPath =
-              lazy
-              match JsonUtil.strkey "path" lib with
-                | Some s -> s
-                | _ -> raise (new Exception("No path found in project"))
-
-            match JsonUtil.strkey "type" lib with
-              | Some "project" ->
-                  let otherProj = Path.GetDirectoryName(libPath.Force())
-                  try
-                      let projectAssets = Path.Combine(otherProj, "obj/project.assets.json")
-                      let projectLibs = loadLibraries projectAssets
-                      let libs_ = Map.fold (fun o k v -> Map.add k v o) libs projectLibs
-                      Map.remove key libs_
-                  with
-                      | _ -> Map.remove key libs
-              | _ -> libs
-
         Map.fold combineProjectLibs libs libs
+
+    let fold1 f (x::xs) = List.fold f x xs
+
+    let loadAssets (files:string list) =
+        fold1 (Map.fold (fun o k v -> Map.add k v o)) (List.map loadLibraries files)
 
     let nixPrefetchUrl (url:string) (name:string) =
         let args = sprintf "--name %s %s" name url
@@ -98,27 +102,19 @@ module Application =
 
         Json.Object objMap
 
-    let usage = lazy let _ = Console.WriteLine("dotnet2nix Some.Project/obj/project.assets.json [output-nuget-packages.json]")
+    let usage = lazy let _ = Console.WriteLine("dotnet2nix [Project..]")
                      1
 
     [<EntryPoint>]
     let main argv =
+        let output = "nuget-packages.json"
 
-        let input =
-          Array.tryItem 0 argv
-            |> Option.fold (fun _ f -> f) (Path.Combine("obj", "project.assets.json"))
-
-        let output =
-          Array.tryItem 1 argv
-            |> Option.fold (fun _ file -> file) "nuget-packages.json"
-
-        let inputExists = File.Exists(input)
-
-        if not inputExists
+        if argv.Length = 0
           then usage.Force()
           else
-            let libs = loadLibraries input
-            let pkgs = PSeq.map makePackage (Map.toSeq libs) |> PSeq.toList
+            let files      = Array.toList argv
+            let libs       = loadAssets files
+            let pkgs       = PSeq.map makePackage (Map.toSeq libs) |> PSeq.toList
             let serialized = Json.formatWith JsonFormattingOptions.Pretty (Json.Array pkgs)
             Console.Error.WriteLine(String.Format("writing to {0}", output))
             File.WriteAllText(output, serialized)
