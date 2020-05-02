@@ -12,7 +12,7 @@ let pkg =
     dotnet = callPackage ./dotnet-build.nix {};
   in dotnet.mkDotNetCoreProject {
     project = "dotnet2nix";
-    version = "1.0.0";
+    version = "0.4";
     config = "Release";
 
     src = ./.;
